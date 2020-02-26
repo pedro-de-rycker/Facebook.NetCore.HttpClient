@@ -8,12 +8,27 @@ using System.Threading.Tasks;
 
 namespace Facebook.NetCore.Client
 {
+    /// <summary>
+    /// An HTTP client for Facebook graph API.
+    /// </summary>
+    /// 
+
     public class FacebookClient : IFacebookClient
     {
         private readonly HttpClient _httpClient = new HttpClient
         {
             BaseAddress = new Uri("https://graph.facebook.com/v6.0/")
         };
+
+        /// <summary>
+        /// GET method to request the Facebook Graph API
+        /// </summary>
+        /// <typeparam name="T">Object type for the response content</typeparam>
+        /// <param name="accessToken">Access token to pass along with the request</param>
+        /// <param name="endpoint">The endpoint the request should reach</param>
+        /// <param name="args">Dictionary of arguments to query with</param>
+        /// <returns></returns>
+        /// 
 
         public async Task<FacebookHttpResponseMessage<T>> GetAsync<T>(
             string accessToken,
@@ -31,6 +46,16 @@ namespace Facebook.NetCore.Client
 
             return await HandleResponse<T>(response);
         }
+
+        /// <summary>
+        /// POST method to request the Facebook Graph API
+        /// </summary>
+        /// <typeparam name="T">Object type for the response content</typeparam>
+        /// <param name="accessToken">Access token to pass along with the request</param>
+        /// <param name="endpoint">The endpoint the request should reach</param>
+        /// <param name="payload">Body payload of the request</param>
+        /// <param name="args">Dictionary of arguments to query with</param>
+        /// <returns></returns>
 
         public async Task<FacebookHttpResponseMessage<T>> PostAsync<T>(
             string accessToken,
@@ -67,7 +92,7 @@ namespace Facebook.NetCore.Client
             {
                 IsSuccessfull = httpResponseMessage.IsSuccessStatusCode,
                 HttpCode = httpResponseMessage.StatusCode,
-                Content = JsonSerializer.Deserialize<T>(await httpResponseMessage.Content.ReadAsStringAsync())
+                Content = httpResponseMessage.IsSuccessStatusCode ? JsonSerializer.Deserialize<T>(await httpResponseMessage.Content.ReadAsStringAsync()) : default
             };
         }
     }
