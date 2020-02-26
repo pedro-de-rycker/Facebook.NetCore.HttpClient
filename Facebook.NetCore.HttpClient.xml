@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Facebook.NetCore.HttpClient</name>
+    </assembly>
+    <members>
+        <member name="T:Facebook.NetCore.Client.FacebookHttpClient">
+            <summary>
+            An HTTP client for Facebook graph API.
+            </summary>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.#ctor(System.String,System.String)">
+            <summary>
+            FacebookHttpClient constructor
+            </summary>
+            <param name="version">The version of the Facebook Graph API to target. Exemple : v6.0</param>
+            <param name="accept">The expected return type of the Facebook Graph API. Default to application/json.</param>
+            <exception cref="T:System.ArgumentException">Thrown when version format is not correct</exception>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.GetRawAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            GET method to request the Facebook Graph API with raw return
+            </summary>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns>Unmodified request result</returns>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.GetRawContentAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            GET method to request the Facebook Graph API with raw content return
+            </summary>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns>Raw content result as a string</returns>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.GetRawContentAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            GET method to request the Facebook Graph API with raw content return
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns>Raw content result as a casted object</returns>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.GetContentAsync``1(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            GET method to request the Facebook Graph API
+            </summary>
+            <typeparam name="T">Object type for the response content</typeparam>
+            <param name="accessToken">Access token to pass along with the request</param>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.PostAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            POST method to request the Facebook Graph API
+            </summary>
+            <typeparam name="T">Object type for the response content</typeparam>
+            <param name="accessToken">Access token to pass along with the request</param>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="payload">Body payload of the request</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns></returns>
+        </member>
+        <member name="T:Facebook.NetCore.Client.IFacebookHttpClient">
+            <summary>
+            Interface for the Facebook HTTP client
+            </summary>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.GetRawAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            GET method to request the Facebook Graph API with raw return
+            </summary>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns>Unmodified request result</returns>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.GetRawContentAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            GET method to request the Facebook Graph API with raw content return
+            </summary>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns>Raw content result as a string</returns>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.GetRawContentAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            GET method to request the Facebook Graph API with raw content return
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns>Raw content result as a casted object</returns>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.GetContentAsync``1(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            GET method to request the Facebook Graph API
+            </summary>
+            <typeparam name="T">Object type for the response content</typeparam>
+            <param name="accessToken">Access token to pass along with the request</param>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns>A typed FacebookHttpResponseMessage object</returns>
+            
+        </member>
+        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.PostAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            POST method to request the Facebook Graph API
+            </summary>
+            <typeparam name="T">Object type for the response content</typeparam>
+            <param name="accessToken">Access token to pass along with the request</param>
+            <param name="endpoint">The endpoint the request should reach</param>
+            <param name="payload">Body payload of the request</param>
+            <param name="args">Dictionary of arguments to query with</param>
+            <returns>A typed FacebookHttpResponseMessage object</returns>
+        </member>
+        <member name="T:Facebook.NetCore.Client.Models.FacebookHttpResponseMessage`1">
+            <summary>
+            Response from the Facebook Graph API
+            </summary>
+            <typeparam name="T">Response object type</typeparam>
+            
+        </member>
+        <member name="P:Facebook.NetCore.Client.Models.FacebookHttpResponseMessage`1.IsSuccessfull">
+            <summary>
+            Boolean indicating if the request was successfull
+            </summary>
+            
+        </member>
+        <member name="P:Facebook.NetCore.Client.Models.FacebookHttpResponseMessage`1.HttpCode">
+            <summary>
+            HttpCode returned by the Facebook Graph API
+            </summary>
+            
+        </member>
+        <member name="P:Facebook.NetCore.Client.Models.FacebookHttpResponseMessage`1.Content">
+            <summary>
+            Content returned by the Facebook Graph API
+            </summary>
+            
+        </member>
+    </members>
+</doc>
