@@ -5,7 +5,7 @@
     <Authors>Pedro De Rycker</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://www.github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</PackageProjectUrl>
-    <RepositoryUrl>https://www.github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</RepositoryUrl>
+    <RepositoryUrl>https://github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <Version>0.1.0</Version>
   </PropertyGroup>
