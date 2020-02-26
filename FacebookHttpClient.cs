@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Facebook.NetCore.Client
@@ -13,12 +14,30 @@ namespace Facebook.NetCore.Client
     /// </summary>
     /// 
 
-    public class FacebookClient : IFacebookClient
+    public class FacebookHttpClient : IFacebookHttpClient
     {
-        private readonly HttpClient _httpClient = new HttpClient
+        private readonly HttpClient _httpClient;
+
+        /// <summary>
+        /// FacebookHttpClient constructor
+        /// </summary>
+        /// <param name="version">The version of the Facebook Graph API to target. Exemple : v6.0</param>
+
+        public FacebookHttpClient(string version)
         {
-            BaseAddress = new Uri("https://graph.facebook.com/v6.0/")
-        };
+            var match = Regex.Match(version, @"v(\d+\.)(\d)");
+            if(!match.Success)
+            {
+                throw new ArgumentException(
+                    "Argument has incorrect format. Should be v[x].[x]. Exemple : v6.0",
+                    nameof(version));
+            }
+
+            _httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(string.Format("https://graph.facebook.com/{0}/", version))
+            };
+        }
 
         /// <summary>
         /// GET method to request the Facebook Graph API
