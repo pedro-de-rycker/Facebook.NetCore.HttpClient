@@ -9,4 +9,8 @@
     <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Projects\Facebook\Facebook.NetCore.HttpClient\Facebook.NetCore.HttpClient.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>
