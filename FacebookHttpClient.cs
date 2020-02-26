@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
@@ -22,8 +23,9 @@ namespace Facebook.NetCore.Client
         /// FacebookHttpClient constructor
         /// </summary>
         /// <param name="version">The version of the Facebook Graph API to target. Exemple : v6.0</param>
+        /// <param name="accept">The expected return type of the Facebook Graph API. Default to application/json.</param>
 
-        public FacebookHttpClient(string version)
+        public FacebookHttpClient(string version, string accept = "application/json")
         {
             var match = Regex.Match(version, @"v(\d+\.)(\d)");
             if(!match.Success)
@@ -37,6 +39,7 @@ namespace Facebook.NetCore.Client
             {
                 BaseAddress = new Uri(string.Format("https://graph.facebook.com/{0}/", version))
             };
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(accept));
         }
 
         /// <summary>
