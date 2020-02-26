@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Pedro De Rycker</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://www.github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</PackageProjectUrl>
+    <RepositoryUrl>https://www.github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 
 </Project>
