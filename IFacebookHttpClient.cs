@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Facebook.NetCore.Client
 {
-    public interface IFacebookClient
+    public interface IFacebookHttpClient
     {
         /// <summary>
         /// GET method to request the Facebook Graph API
