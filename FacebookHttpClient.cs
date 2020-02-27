@@ -127,6 +127,7 @@ namespace Facebook.NetCore.Client
             string endpoint,
             IDictionary<string, string> args = null)
         {
+            if(args is null) { args = new Dictionary<string, string>(); }
             args.Add("access_token", accessToken);
 
             var response = await GetRawAsync(endpoint, args);
@@ -185,6 +186,8 @@ namespace Facebook.NetCore.Client
 
         private async Task<FacebookHttpResponseMessage<T>> HandleResponse<T>(HttpResponseMessage httpResponseMessage)
         {
+            string test = await httpResponseMessage.Content.ReadAsStringAsync();
+
             return new FacebookHttpResponseMessage<T>
             {
                 IsSuccessfull = httpResponseMessage.IsSuccessStatusCode,
