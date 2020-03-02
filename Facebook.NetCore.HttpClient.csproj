@@ -8,6 +8,7 @@
     <RepositoryUrl>https://github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <Version>0.1.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
