@@ -7,12 +7,22 @@
     <PackageProjectUrl>https://www.github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>nuget-package-logo.png</PackageIcon>
+    <PackageIconUrl />
+    <Description>A base client to use Facebook Graph API.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>D:\Projects\Facebook\Facebook.NetCore.HttpClient\Facebook.NetCore.HttpClient.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Assets\nuget-package-logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
