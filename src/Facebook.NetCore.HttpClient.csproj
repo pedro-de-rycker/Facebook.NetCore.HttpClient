@@ -7,7 +7,7 @@
     <PackageProjectUrl>https://www.github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>nuget-package-logo.png</PackageIcon>
     <PackageIconUrl />
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Assets\nuget-package-logo.png">
+    <None Include="..\..\Assets\nuget-package-logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
