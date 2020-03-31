@@ -3,23 +3,24 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>Pedro De Rycker</Authors>
+    <Owners>pedro-de-rycker</Owners>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://www.github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pedro-de-rycker/Facebook.NetCore.HttpClient</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <Version>0.1.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageIcon>nuget-package-logo.png</PackageIcon>
+    <PackageIcon>logo.png</PackageIcon>
     <PackageIconUrl />
-    <Description>A base client to use Facebook Graph API.</Description>
+    <Description>An http client to use Facebook Graph API.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Projects\Facebook\Facebook.NetCore.HttpClient\Facebook.NetCore.HttpClient.xml</DocumentationFile>
+    <DocumentationFile>Facebook.NetCore.HttpClient.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Assets\nuget-package-logo.png">
+    <None Include="Assets/logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
