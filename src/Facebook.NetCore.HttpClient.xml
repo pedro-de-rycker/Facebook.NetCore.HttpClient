@@ -4,150 +4,69 @@
         <name>Facebook.NetCore.HttpClient</name>
     </assembly>
     <members>
-        <member name="T:Facebook.NetCore.Client.FacebookHttpClient">
+        <member name="T:Facebook.NetCore.HttpClient.ExtensionMethods.FacebookHttpClientExtensionMethods">
             <summary>
-            An HTTP client for Facebook graph API.
+            Extensions methods for the FacebookHttpClient class.
             </summary>
             
         </member>
-        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.#ctor(System.String,System.String)">
+        <member name="M:Facebook.NetCore.HttpClient.ExtensionMethods.FacebookHttpClientExtensionMethods.GetAsync(Facebook.NetCore.HttpClient.FacebookHttpClient,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)">
             <summary>
-            FacebookHttpClient constructor
+            Send a Facebook format GET request to the specified Uri with an HTTP completion option and a
+             cancellation token as an asynchronous operation.
             </summary>
-            <param name="version">The version of the Facebook Graph API to target. Exemple : v6.0</param>
-            <param name="accept">The expected return type of the Facebook Graph API. Default to application/json.</param>
-            <exception cref="T:System.ArgumentException">Thrown when version format is not correct</exception>
+            <param name="httpClient">The FacebookHttpClient.</param>
+            <param name="endpoint">The endpoint request.</param>
+            <param name="accessToken">The access token.</param>
+            <param name="args">The dictionary of arguments to pass.</param>
+            <param name="options">An HTTP completion option value that indicates when the operation should be considered completed.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:System.ArgumentNullException">The endpoint is null.</exception>
             
         </member>
-        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.GetRawAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Facebook.NetCore.HttpClient.ExtensionMethods.FacebookHttpClientExtensionMethods.PostAsync(Facebook.NetCore.HttpClient.FacebookHttpClient,System.String,System.Net.Http.HttpContent,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
-            GET method to request the Facebook Graph API with raw return
+            Send a POST request with a cancellation token as an asynchronous operation.
             </summary>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns>Unmodified request result</returns>
+            <param name="httpClient">The FacebookHttpClient.</param>
+            <param name="content">The HttpContent to pass in the request.</param>
+            <param name="endpoint">The endpoint request.</param>
+            <param name="accessToken">The access token.</param>
+            <param name="args">The dictionary of arguments to pass.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:System.ArgumentNullException">The endpoint is null.</exception>
             
         </member>
-        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.GetRawContentAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="T:Facebook.NetCore.HttpClient.ExtensionMethods.IDctionaryExtensionMethods">
             <summary>
-            GET method to request the Facebook Graph API with raw content return
-            </summary>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns>Raw content result as a string</returns>
-            
-        </member>
-        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.GetRawContentAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            GET method to request the Facebook Graph API with raw content return
-            </summary>
-            <typeparam name="T">Return type</typeparam>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns>Raw content result as a casted object</returns>
-            
-        </member>
-        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.GetContentAsync``1(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            GET method to request the Facebook Graph API
-            </summary>
-            <typeparam name="T">Object type for the response content</typeparam>
-            <param name="accessToken">Access token to pass along with the request</param>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns></returns>
-            
-        </member>
-        <member name="M:Facebook.NetCore.Client.FacebookHttpClient.PostAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            POST method to request the Facebook Graph API
-            </summary>
-            <typeparam name="T">Object type for the response content</typeparam>
-            <param name="accessToken">Access token to pass along with the request</param>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="payload">Body payload of the request</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns></returns>
-        </member>
-        <member name="T:Facebook.NetCore.Client.IFacebookHttpClient">
-            <summary>
-            Interface for the Facebook HTTP client
+            Extensions methods for the IDictionary class.
             </summary>
             
         </member>
-        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.GetRawAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Facebook.NetCore.HttpClient.ExtensionMethods.IDctionaryExtensionMethods.ToNameValueCollection(System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>
-            GET method to request the Facebook Graph API with raw return
+            Changes a IDictionary object to a NameValueCollection
             </summary>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns>Unmodified request result</returns>
+            <param name="dictionary">The source IDictionary</param>
+            <returns>A NameValueCollection</returns>
+            <example>dictionary.ToNameValueCollection()</example>
             
         </member>
-        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.GetRawContentAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="T:Facebook.NetCore.HttpClient.FacebookHttpClient">
             <summary>
-            GET method to request the Facebook Graph API with raw content return
-            </summary>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns>Raw content result as a string</returns>
-            
-        </member>
-        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.GetRawContentAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            GET method to request the Facebook Graph API with raw content return
-            </summary>
-            <typeparam name="T">Return type</typeparam>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns>Raw content result as a casted object</returns>
-            
-        </member>
-        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.GetContentAsync``1(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            GET method to request the Facebook Graph API
-            </summary>
-            <typeparam name="T">Object type for the response content</typeparam>
-            <param name="accessToken">Access token to pass along with the request</param>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns>A typed FacebookHttpResponseMessage object</returns>
-            
-        </member>
-        <member name="M:Facebook.NetCore.Client.IFacebookHttpClient.PostAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            POST method to request the Facebook Graph API
-            </summary>
-            <typeparam name="T">Object type for the response content</typeparam>
-            <param name="accessToken">Access token to pass along with the request</param>
-            <param name="endpoint">The endpoint the request should reach</param>
-            <param name="payload">Body payload of the request</param>
-            <param name="args">Dictionary of arguments to query with</param>
-            <returns>A typed FacebookHttpResponseMessage object</returns>
-        </member>
-        <member name="T:Facebook.NetCore.Client.Models.FacebookHttpResponseMessage`1">
-            <summary>
-            Response from the Facebook Graph API
-            </summary>
-            <typeparam name="T">Response object type</typeparam>
-            
-        </member>
-        <member name="P:Facebook.NetCore.Client.Models.FacebookHttpResponseMessage`1.IsSuccessfull">
-            <summary>
-            Boolean indicating if the request was successfull
+            An extended HttpClient to use the Facebook graph API.
             </summary>
             
         </member>
-        <member name="P:Facebook.NetCore.Client.Models.FacebookHttpResponseMessage`1.HttpCode">
+        <member name="M:Facebook.NetCore.HttpClient.FacebookHttpClient.#ctor(System.String)">
             <summary>
-            HttpCode returned by the Facebook Graph API
+            An extended HttpClient for the Facebook graph API
             </summary>
-            
-        </member>
-        <member name="P:Facebook.NetCore.Client.Models.FacebookHttpResponseMessage`1.Content">
-            <summary>
-            Content returned by the Facebook Graph API
-            </summary>
+            <param name="version">The Facebook graph API version to reach</param>
+            <example>new FacebookHttpClient("v6.0")</example>
+            <exception cref="T:System.ArgumentException">Thrown if the Facebook graph API <paramref name="version"/> is not in the proper format.</exception>
             
         </member>
     </members>
