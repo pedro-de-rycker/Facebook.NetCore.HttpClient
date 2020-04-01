@@ -28,18 +28,18 @@ namespace Facebook.NetCore.HttpClient.ExtensionMethods
         /// <exception cref="System.ArgumentNullException">The endpoint is null.</exception>
         /// 
 
-        public static async Task GetAsync(
+        public static async Task<HttpResponseMessage> GetAsync(
             this FacebookHttpClient httpClient,
             string endpoint,
-            string accessToken,
+            string accessToken = null,
             IDictionary<string, string> args = null,
             System.Net.Http.HttpCompletionOption options = default,
             System.Threading.CancellationToken cancellationToken = default)
         {
             if (args is null) { args = new Dictionary<string, string>(); }
-            args.Add("access_token", accessToken);
+            if (string.IsNullOrWhiteSpace(accessToken)) { args.Add("access_token", accessToken); }
 
-            var result = await httpClient.GetAsync(BuildEndpoint(endpoint, args), options, cancellationToken);
+            return await httpClient.GetAsync(BuildEndpoint(endpoint, args), options, cancellationToken);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Facebook.NetCore.HttpClient.ExtensionMethods
         /// <exception cref="System.ArgumentNullException">The endpoint is null.</exception>
         /// 
 
-        public static async Task PostAsync(
+        public static async Task<HttpResponseMessage> PostAsync(
             this FacebookHttpClient httpClient,
             string endpoint,
             HttpContent content,
@@ -64,9 +64,9 @@ namespace Facebook.NetCore.HttpClient.ExtensionMethods
             System.Threading.CancellationToken cancellationToken = default)
         {
             if (args is null) { args = new Dictionary<string, string>(); }
-            args.Add("access_token", accessToken);
+            if (string.IsNullOrWhiteSpace(accessToken)) { args.Add("access_token", accessToken); }
 
-            var result = await httpClient.PostAsync(BuildEndpoint(endpoint, args), content, cancellationToken);
+            return await httpClient.PostAsync(BuildEndpoint(endpoint, args), content, cancellationToken);
         }
 
         private static string BuildEndpoint(string endpoint, IDictionary<string, string> args)
