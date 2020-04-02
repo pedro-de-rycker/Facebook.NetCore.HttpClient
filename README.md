@@ -47,7 +47,7 @@ Where :
 - **options**: same as for the regular [HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient?view=netcore-3.1).
 - **cancellationToken**: same as for the regular [HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient?view=netcore-3.1).
 
-### GetAsync
+### PostAsync
 
 ````csharp
 PostAsync(
