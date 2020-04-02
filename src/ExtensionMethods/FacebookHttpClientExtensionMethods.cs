@@ -37,7 +37,7 @@ namespace Facebook.NetCore.HttpClient.ExtensionMethods
             System.Threading.CancellationToken cancellationToken = default)
         {
             if (args is null) { args = new Dictionary<string, string>(); }
-            if (string.IsNullOrWhiteSpace(accessToken)) { args.Add("access_token", accessToken); }
+            if (!string.IsNullOrWhiteSpace(accessToken)) { args.Add("access_token", accessToken); }
 
             return await httpClient.GetAsync(BuildEndpoint(endpoint, args), options, cancellationToken);
         }
@@ -64,19 +64,22 @@ namespace Facebook.NetCore.HttpClient.ExtensionMethods
             System.Threading.CancellationToken cancellationToken = default)
         {
             if (args is null) { args = new Dictionary<string, string>(); }
-            if (string.IsNullOrWhiteSpace(accessToken)) { args.Add("access_token", accessToken); }
+            if (!string.IsNullOrWhiteSpace(accessToken)) { args.Add("access_token", accessToken); }
 
             return await httpClient.PostAsync(BuildEndpoint(endpoint, args), content, cancellationToken);
         }
 
         private static string BuildEndpoint(string endpoint, IDictionary<string, string> args)
         {
-            UriBuilder builder = new UriBuilder();
-            var query = HttpUtility.ParseQueryString(string.Empty);
-            query.Add(args.ToNameValueCollection());
-            builder.Path = endpoint;
-            builder.Query = query.ToString();
-            return builder.ToString();
+            string path = endpoint;
+            if(args.Count != 0)
+            {
+                var query = HttpUtility.ParseQueryString(string.Empty);
+                query.Add(args.ToNameValueCollection());
+                path = string.Format("{0}?{1}", endpoint, query.ToString());
+            }
+
+            return path;
         }
     }
 }
